@@ -33,7 +33,9 @@ for station in config['stations']:
         session.add(platform_model)
 
 for track in config['tracks']:
+    track_id = f"{track['from_station_id']}_{track['to_station_id']}"
     track_model = Track(
+        id=track_id,
         from_station_id=track['from_station_id'],
         to_station_id=track['to_station_id'],
         direction_code=track['direction_code'],
@@ -55,8 +57,8 @@ def simulate_trip(train, origin, destination, srt, trip_start_time):
     trip_end_time = trip_start_time + timedelta(minutes=delay + srt)
     trip_model = Trip(
         train_id=train.train_id,
-        origin=origin,
-        destination=destination,
+        origin_station_id=origin,
+        destination_station_id=destination,
         length=random.randint(3, 10),
         num_passengers=num_passengers,
         srt=srt,

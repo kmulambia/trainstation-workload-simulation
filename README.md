@@ -19,8 +19,8 @@ The Train Station Workload Simulator is a Python application designed to simulat
 
 2. Create a virtual environment and activate it:
     ```sh
-    python -m venv .venv
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
 3. Install the dependencies:
@@ -36,32 +36,33 @@ Example `config.json`:
 ```json
 {
     "trains": [
-        {"train_id": 1, "passenger_capacity": 200},
-        {"train_id": 2, "passenger_capacity": 150},
-        {"train_id": 3, "passenger_capacity": 180},
-        {"train_id": 4, "passenger_capacity": 220},
-        {"train_id": 5, "passenger_capacity": 170}
+        {"train_id": "train1", "passenger_capacity": 200},
+        {"train_id": "train2", "passenger_capacity": 150},
+        {"train_id": "train3", "passenger_capacity": 180},
+        {"train_id": "train4", "passenger_capacity": 220},
+        {"train_id": "train5", "passenger_capacity": 170}
     ],
     "stations": [
-        {"id": 1, "platforms": [{"passenger_capacity": 100}, {"passenger_capacity": 150}]},
-        {"id": 2, "platforms": [{"passenger_capacity": 120}, {"passenger_capacity": 80}]},
-        {"id": 3, "platforms": [{"passenger_capacity": 140}]},
-        {"id": 4, "platforms": [{"passenger_capacity": 130}, {"passenger_capacity": 110}, {"passenger_capacity": 90}]},
-        {"id": 5, "platforms": [{"passenger_capacity": 200}, {"passenger_capacity": 100}]}
+        {"id": "station1", "platforms": [{"passenger_capacity": 100}, {"passenger_capacity": 150}]},
+        {"id": "station2", "platforms": [{"passenger_capacity": 120}, {"passenger_capacity": 80}]},
+        {"id": "station3", "platforms": [{"passenger_capacity": 140}]},
+        {"id": "station4", "platforms": [{"passenger_capacity": 130}, {"passenger_capacity": 110}, {"passenger_capacity": 90}]},
+        {"id": "station5", "platforms": [{"passenger_capacity": 200}, {"passenger_capacity": 100}]}
     ],
     "tracks": [
-        {"from_station_id": 1, "to_station_id": 2, "direction_code": "UF", "average_section_running_time": 10},
-        {"from_station_id": 2, "to_station_id": 3, "direction_code": "DF", "average_section_running_time": 15},
-        {"from_station_id": 3, "to_station_id": 4, "direction_code": "US", "average_section_running_time": 20},
-        {"from_station_id": 4, "to_station_id": 5, "direction_code": "DS", "average_section_running_time": 25},
-        {"from_station_id": 5, "to_station_id": 1, "direction_code": "UF", "average_section_running_time": 30},
-        {"from_station_id": 1, "to_station_id": 3, "direction_code": "UF", "average_section_running_time": 35},
-        {"from_station_id": 2, "to_station_id": 4, "direction_code": "DS", "average_section_running_time": 40}
+        {"from_station_id": "station1", "to_station_id": "station2", "direction_code": "UF", "average_section_running_time": 10},
+        {"from_station_id": "station2", "to_station_id": "station3", "direction_code": "DF", "average_section_running_time": 15},
+        {"from_station_id": "station3", "to_station_id": "station4", "direction_code": "US", "average_section_running_time": 20},
+        {"from_station_id": "station4", "to_station_id": "station5", "direction_code": "DS", "average_section_running_time": 25},
+        {"from_station_id": "station5", "to_station_id": "station1", "direction_code": "UF", "average_section_running_time": 30},
+        {"from_station_id": "station1", "to_station_id": "station3", "direction_code": "UF", "average_section_running_time": 35},
+        {"from_station_id": "station2", "to_station_id": "station4", "direction_code": "DS", "average_section_running_time": 40}
     ],
     "num_people_per_day": 500,
     "start_time": "09:00",
     "end_time": "12:00"
 }
+
 ```
 
 4. Running the Simulation:
