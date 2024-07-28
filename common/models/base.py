@@ -30,7 +30,7 @@ class Station(Base):
 
 class Track(Base):
     __tablename__ = 'tracks'
-    id = Column(String, primary_key=True)  # Removed autoincrement=True
+    id = Column(String, primary_key=True)
     from_station_id = Column(String, ForeignKey('stations.id'), nullable=False)
     to_station_id = Column(String, ForeignKey('stations.id'), nullable=False)
     direction_code = Column(String, nullable=False)
